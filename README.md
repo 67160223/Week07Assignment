@@ -19,7 +19,7 @@
 
 Pipeline ถูกออกแบบตามสถาปัตยกรรม **Star Schema** เพื่อรองรับการนำข้อมูลไปวิเคราะห์ต่อ (Data Analytics / BI) โดยกำหนด Grain ของ `fact_sales` เป็น **"หนึ่งรายการขายสินค้าที่ผ่านการตรวจสอบต่อ order_id"**
 
-```text
+
                   +-------------------+
                   |   dim_customer    |
                   +-------------------+
@@ -49,7 +49,7 @@ Pipeline ถูกออกแบบตามสถาปัตยกรรม *
                           |     updated_at    |
                           +-------------------+
 
-## ✨ คุณสมบัติเด่นของ Pipeline (Key Features)
+# ✨ คุณสมบัติเด่นของ Pipeline (Key Features)
 
 1. **Idempotency**: สามารถรัน Batch เดิมซ้ำกี่ครั้งก็ได้ ข้อมูลใน `fact_sales` จะไม่เพิ่มขึ้นและไม่เกิดการบันทึกซ้ำ
 2. **Incremental Loading & Upsert**: สามารถประมวลผลข้อมูลใหม่หรือข้อมูลอัปเดต โดยเทียบค่า `updated_at` หากพบข้อมูลที่มี `order_id` เดิมแต่มี timestamp ใหม่กว่า จะทำ Update ข้อมูลเดิมทันที
@@ -78,7 +78,7 @@ Pipeline ถูกออกแบบตามสถาปัตยกรรม *
 
 รันสคริปต์หลักผ่านคำสั่ง Terminal / Command Prompt:
 
-```bash
+
 python pipeline.py
 ## 📊 โครงสร้างตารางข้อมูล (Database Schema)
 
